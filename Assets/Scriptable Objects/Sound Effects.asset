@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soundEffects:
   - Type: 1
-    IsRandomized: 1
     Clips:
     - {fileID: 8300000, guid: 9e013a4eed7b76646b5d818e87f86c90, type: 3}
     - {fileID: 8300000, guid: 6b917025620d13444879286c923bcb7f, type: 3}
   - Type: 2
-    IsRandomized: 0
     Clips:
     - {fileID: 8300000, guid: 4d596a591ef3b0a47b3512bc9cc63e6e, type: 3}
+  - Type: 3
+    Clips:
+    - {fileID: 8300000, guid: d8a96f2cc4a4c0e418dca00ebe59e822, type: 3}
+    - {fileID: 8300000, guid: 6affc9bb6e3ec8b4f93d415e58055741, type: 3}
+    - {fileID: 8300000, guid: 71ebb86f0c8167b44bc8a2f07c2a7044, type: 3}

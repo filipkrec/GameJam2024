@@ -31,6 +31,8 @@ public class Duck : SingletonBehaviour<Duck>
 
     public void Collide(ObstacleType obstacleType)
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.Duck);
+
         string message = _obstacles.GetDeathMessageByObstacleType(obstacleType);
         if (message == string.Empty) Debug.LogWarning("Warning: no data or message for obstacle of type " + obstacleType.ToString());
         else
