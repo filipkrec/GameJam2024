@@ -42,11 +42,13 @@ public class PauseMenuManager : Window
 
     private void Continue()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         // TODO: close the menu and continue the game time
     }
 
     private void OpenSettings()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         CloseWindow();
         _previouslySelectedElement = _settingsButton.gameObject;
         _settingsMenu.OpenWindow();
@@ -54,6 +56,7 @@ public class PauseMenuManager : Window
 
     private void Exit()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         PopUpWindow.Instance.SetPopUpWindow("Sure you want to go, go?", "Yes", OnExitConfirmed, "No", OnExitCancelled);   // TODO: save the texts to a scriptable or a file
         _previouslySelectedElement = _exitButton.gameObject;
         CloseWindow();

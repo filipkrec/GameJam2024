@@ -56,6 +56,7 @@ public class SettingsMenuManager : Window
 
     private void Back()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         CloseWindow();
         _onCloseAction?.Invoke();
     }

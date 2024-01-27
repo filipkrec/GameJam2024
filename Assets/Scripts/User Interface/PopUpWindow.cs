@@ -61,12 +61,14 @@ public class PopUpWindow : Window
 
     private void SelectOptionOne()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         CloseWindow();
         _onOptionOneAction?.Invoke();
     }
 
     private void SelectOptionTwo()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         CloseWindow();
         _onOptionTwoAction?.Invoke();
     }

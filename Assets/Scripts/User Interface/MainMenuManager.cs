@@ -42,11 +42,13 @@ public class MainMenuManager : Window
 
     private void Play()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         // TODO: load first level
     }
 
     private void OpenSettings()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         CloseWindow();
         _previouslySelectedElement = _settingsButton.gameObject;
         _settingsMenu.OpenWindow();
@@ -54,6 +56,7 @@ public class MainMenuManager : Window
 
     private void Exit()
     {
+        AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
         PopUpWindow.Instance.SetPopUpWindow("Sure you want to duck out?", "Yes", OnExitConfirmed, "No", OnExitCancelled);   // TODO: save the texts to a scriptable or a file
         _previouslySelectedElement = _exitButton.gameObject;
         CloseWindow();
