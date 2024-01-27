@@ -17,8 +17,8 @@ public class AudioManager : SingletonBehaviour<AudioManager>
     {
         base.Awake();
 
-        _soundEffectSource.volume = SoundEffectsVolume;
-        _backgroundMusicSource.volume = BackgroundMusicVolume;
+        if (_soundEffectSource != null) _soundEffectSource.volume = SoundEffectsVolume;
+        if (_backgroundMusicSource != null) _backgroundMusicSource.volume = BackgroundMusicVolume;
     }
 
     public void PlaySoundEffectByType(SoundEffectType type)
