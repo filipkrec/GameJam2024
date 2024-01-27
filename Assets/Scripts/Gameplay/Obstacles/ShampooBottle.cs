@@ -4,24 +4,48 @@ using UnityEngine;
 
 public class ShampooBottle : Obstacle
 {
-    [SerializeField] private List<Vector3> _waypoints = new List<Vector3>();
-    [SerializeField] private float _speedPerOneUnit = 0.0f;
+    [SerializeField] private List<Transform> _waypoints = new List<Transform>();
+    [SerializeField] private float _loopTime = 0.0f;
+    private List<Vector3> _positions = new List<Vector3>();
 
     private void Awake()
     {
         _type = ObstacleType.ShampooBottle;
-        transform.position = _waypoints[0];
+
+        foreach(Transform waypoint in _waypoints)
+        {
+            _positions.Add(waypoint.position);
+        }
+
+        _positions.Add(transform.position);
 
         Sequence sequence = DOTween.Sequence();
-        float duration = 0.0f;
 
-        for (int index = 1; index < _waypoints.Count; index++)
+        float[] distanceWeights = new float[_waypoints.Count + 1];
+        float totalDistance = 0f;
+
+        for (int i = 0; i < _positions.Count; i++)
         {
-            duration = _speedPerOneUnit;
-            sequence.Append(transform.DOMove(_waypoints[index], duration));
+            int next = i + 1;
+            if(i == _positions.Count - 1)
+            {
+                next = 0;
+            }
+
+            distanceWeights[i] = Vector3.Distance(_positions[i], _positions[next]);
+            totalDistance += distanceWeights[i];
         }
-        duration = _speedPerOneUnit;
-        sequence.Append(transform.DOMove(_waypoints[0], duration));
+
+        for(int i = 0; i < _positions.Count; ++i)
+        {
+            distanceWeights[i] = distanceWeights[i] / totalDistance;
+        }
+
+        for (int index = 0; index < _positions.Count; index++)
+        {
+            float duration = distanceWeights[index] * _loopTime;
+            sequence.Append(transform.DOMove(_positions[index], duration));
+        }
 
         sequence.SetLoops(-1);
         sequence.Play();
