@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
         _cameraTransform.LookAt(_duckTransform.position);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_isDuckAlive)
         {

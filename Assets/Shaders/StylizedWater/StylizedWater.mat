@@ -38,43 +38,43 @@ Material:
     m_Ints: []
     m_Floats:
     - _Distance: 10
-    - _DistortionScale: 1
-    - _DistortionSpeed: 1
-    - _DistortionStrength: 25
+    - _DistortionScale: 25
+    - _DistortionSpeed: 15
+    - _DistortionStrength: 12
     - _FoamCutoff: 1
-    - _FoamDepthMax: 1
-    - _FoamScale: 30
+    - _FoamDepthMax: 2
+    - _FoamScale: 8
     - _FoamSpeed: 0.1
     - _GlobalAlphaMulitiplier: 1
-    - _MaxDepth: 2.52
+    - _MaxDepth: 1
     - _QueueControl: 0
     - _QueueOffset: -1
     - _SmoothsteMax: 0.79
     - _SmoothsteMaxFoam: 1
     - _SmoothsteMin: -1.1
     - _SmoothsteMinFoam: 0
-    - _SmoothstepColorMax: 0.75
-    - _SmoothstepColorMin: -1.51
+    - _SmoothstepColorMax: 16
+    - _SmoothstepColorMin: 1
     - _SmoothstepFoamFade: 0.5
     - _SmoothstepMax: 0.77
     - _SmoothstepMaxFoam: 1
     - _SmoothstepMin: -1.52
-    - _SmoothstepMinFoam: 0
+    - _SmoothstepMinFoam: 1
     - _SmoothstepSparksFade: 0.15
     - _SparksAmount: 1
-    - _SparksCutoff: 0.73
-    - _SparksIntensity: 0.65
+    - _SparksCutoff: 1
+    - _SparksIntensity: 15
     - _SparksSpeed: 1
-    - _SparksSpeed2: 0.01
+    - _SparksSpeed2: 15
     m_Colors:
     - _DeepWaterColor: {r: 0, g: 0.46749887, b: 0.9716981, a: 1}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 0.33333334}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0.12941177}
     - _ShallowWaterColor: {r: 0, g: 1, b: 0.94999766, a: 0.49803922}
-    - _SparksColor: {r: 2.433572, g: 2.433572, b: 2.433572, a: 1}
-    - _SparksScale: {r: 50, g: 50, b: 0, a: 0}
-    - _SparksScale2: {r: 200, g: 200, b: 0, a: 0}
-    - _SparksSpeed2Vec2: {r: -0.1, g: 0.1, b: 0, a: 0}
-    - _SparksSpeedVec2: {r: 0.1, g: -0.1, b: 0, a: 0}
+    - _SparksColor: {r: 23.96863, g: 23.96863, b: 23.96863, a: 1}
+    - _SparksScale: {r: 155, g: 155, b: 0, a: 0}
+    - _SparksScale2: {r: 30, g: 30, b: 0, a: 0}
+    - _SparksSpeed2Vec2: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _SparksSpeedVec2: {r: 0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5421151934088359562
 MonoBehaviour:
