@@ -45,6 +45,7 @@ Material:
     m_Floats:
     - _Cutoff: 0
     - _DstBlend: 0
+    - _GlossMapScale: 0.7
     - _Mode: 0
     - _SrcBlend: 1
     - _ZWrite: 1
