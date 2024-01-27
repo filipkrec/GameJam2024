@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MovementConfig", menuName = "ScriptableObjects/MovementConfigScriptableObject")]
+[CreateAssetMenu(fileName = "Movement Config", menuName = "Scriptable Objects/Movement Config Scriptable Object")]
 public class MovementConfigScriptableObject : ScriptableObject
 {
     public float TorqueMultiplier;

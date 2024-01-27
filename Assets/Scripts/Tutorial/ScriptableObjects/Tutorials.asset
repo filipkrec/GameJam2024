@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9c1f40c91d70e43a95b8d20abc8a34, type: 3}
+  m_Name: Tutorials
+  m_EditorClassIdentifier: 
+  TutorialsData:
+  - Id: 0
+    Text: Hold [Button A] to gently nudge your adorable duckie using its left leg.
+      Alternatively, hold [Button B] to guide your duckie with its right leg.
+  - Id: 1
+    Text: Experience the thrill of a splashy dash by simultaneously pressing both
+      buttons! However, be cautious as dashing is quite exhausting, and your charming
+      duckie might need a brief cooldown after such an energetic performance.
+  - Id: 2
+    Text: Keep your duckie in a continuous swim for a little while, maintaining a
+      delightful tempo, and watch it gain an extra burst of speed.Keep your duckie
+      in a continuous swim for a little while, maintaining a delightful tempo, and
+      watch it gain an extra burst of speed.
+  - Id: 3
+    Text: Navigate skillfully through the obstacles, reaching your human companion
+      to spread joy across the bathtubs of the world. Remember, the key is to make
+      bath time an enchanting adventure for your rubbery friend!
