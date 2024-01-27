@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: MovementConfig
   m_EditorClassIdentifier: 
   TorqueMultiplier: 15
-  ForceMultiplier: 60
+  ForceMultiplier: 30
+  BoostForceMultiplier: 2
+  TempoForceMultiplier: 2
   MaxHoldTime: 1
-  BoostThresholdTime: 0
   LegCooldown: 1
-  LegCooldownBoost: 0
+  LegCooldownBoost: 3
+  BoostThresholdTime: 0.5
+  TempoThresholdTime: 3
+  TempoBreakTime: 1
