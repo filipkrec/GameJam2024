@@ -11,8 +11,10 @@ public class DuckLeg : MonoBehaviour
     [Header("Setup")]
     [SerializeField] private bool torqueClockwise;
 
+#if UNITY_EDITOR
     [Header("Test")]
     [SerializeField] private Image imagePreview;
+#endif
 
     public Action<DuckLeg> MovementStarted;
     public Action<DuckLeg> MovementStopped;
@@ -66,7 +68,12 @@ public class DuckLeg : MonoBehaviour
 
     private void FlashColor(Color _color)
     {
-        imagePreview.color = _color;
+#if UNITY_EDITOR
+        if (imagePreview != null)
+        {
+            imagePreview.color = _color;
+        }
+#endif
     }
 
     public void Boost()
