@@ -7,6 +7,7 @@ public class DuckLeg : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private MovementConfigScriptableObject movementConfig;
+    [SerializeField] private ParticleSystem legTrail;
 
     [Header("Setup")]
     [SerializeField] private bool torqueClockwise;
@@ -31,7 +32,7 @@ public class DuckLeg : MonoBehaviour
         {
             if(Input.GetKeyDown(code))
             {
-                MovementStarted?.Invoke(this);
+                StartMovement();
             }
 
             if (Input.GetKey(code) && timer < movementConfig.MaxHoldTime)
@@ -47,12 +48,12 @@ public class DuckLeg : MonoBehaviour
             {
                 timer = 0f;
                 cooldown = movementConfig.LegCooldown;
-                MovementStopped?.Invoke(this);
+                EndMovement();
             }
             else if (timer > movementConfig.MaxHoldTime)
             {
                 FlashColor(Color.red);
-                MovementStopped?.Invoke(this);
+                EndMovement();
             }
             else
             {
@@ -81,6 +82,7 @@ public class DuckLeg : MonoBehaviour
         timer = 0f;
         cooldown = movementConfig.LegCooldownBoost;
         rigidBody.AddForce(transform.rotation * Vector3.forward * movementConfig.BoostForceMultiplier, ForceMode.Impulse);
+        legTrail.Stop();
     }
 
     public void StartTempo()
@@ -91,5 +93,17 @@ public class DuckLeg : MonoBehaviour
     public void EndTempo()
     {
         tempoMultiplier = 1f;
+    }
+
+    private void StartMovement()
+    {
+        legTrail.Play();
+        MovementStarted?.Invoke(this);
+    }
+
+    private void EndMovement()
+    {
+        legTrail.Stop();
+        MovementStopped?.Invoke(this);
     }
 }

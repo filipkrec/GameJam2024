@@ -10,6 +10,7 @@ public class DuckMovement : MonoBehaviour
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private DuckLeg leftLeg;
     [SerializeField] private DuckLeg rightLeg;
+    [SerializeField] private ParticleSystem boostTrail;
 
     [Header("Input")]
     [SerializeField] private KeyCode KeyCodeLeft;
@@ -29,7 +30,6 @@ public class DuckMovement : MonoBehaviour
 
         rightLeg.MovementStarted = MovementFlowStarted;
         rightLeg.MovementStopped = MovementFlowStopped;
-
     }
 
     // Update is called once per frame
@@ -43,6 +43,7 @@ public class DuckMovement : MonoBehaviour
         {
             rightLeg.Boost();
             leftLeg.Boost();
+            boostTrail.Play();
         }
 
         if(isTempoEvaluationActive && !isTempo)
