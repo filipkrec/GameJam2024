@@ -7,6 +7,10 @@ public class Duck : SingletonBehaviour<Duck>
 
     [SerializeField] private Obstacles _obstacles = null;
 
+    [SerializeField] private DeathMessage _deathMessagePrefab = null;
+    [SerializeField] private Vector3 _deathMessageSpawnOffset = Vector3.zero;
+    [SerializeField] private float _deathMessageAppearDelay = 0.0f;
+
     private Action _onDeathAction = null;
 
     protected override void Awake()
@@ -27,13 +31,16 @@ public class Duck : SingletonBehaviour<Duck>
 
     public void Collide(ObstacleType obstacleType)
     {
-        string message = _obstacles.GetObstacleMessageByType(obstacleType);
+        string message = _obstacles.GetDeathMessageByObstacleType(obstacleType);
         if (message == string.Empty) Debug.LogWarning("Warning: no data or message for obstacle of type " + obstacleType.ToString());
         else
         {
-            // TODO: spawn message
+            DeathMessage deathMessage = Instantiate(_deathMessagePrefab, transform.position + _deathMessageSpawnOffset, Quaternion.identity);
+            deathMessage.SetUpMessage(message);
+            deathMessage.Appear(transform.position, _deathMessageAppearDelay);
         }
 
+        // TODO: animate duck death
         // TODO: connect to movement controller to stop movement and animate death
         _onDeathAction?.Invoke();
     }

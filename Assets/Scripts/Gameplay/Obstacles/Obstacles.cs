@@ -9,17 +9,17 @@ public class Obstacles : ScriptableObject
     private class ObstacleData
     {
         public ObstacleType Type = ObstacleType.None;
-        public string[] Messages = null;
+        public string[] DeathMessages = null;
     }
 
     [SerializeField] private List<ObstacleData> _obstacles = new List<ObstacleData>();
 
-    public string GetObstacleMessageByType(ObstacleType type)
+    public string GetDeathMessageByObstacleType(ObstacleType type)
     {
         if (type == ObstacleType.None) return string.Empty;
 
         ObstacleData targetData = _obstacles.Find((data) => data.Type == type);
-        if (targetData != null && targetData.Messages.Length > 0) return targetData.Messages[targetData.Messages.Length > 1 ? UnityEngine.Random.Range(0, targetData.Messages.Length) : 0]; 
+        if (targetData != null && targetData.DeathMessages.Length > 0) return targetData.DeathMessages[targetData.DeathMessages.Length > 1 ? UnityEngine.Random.Range(0, targetData.DeathMessages.Length) : 0]; 
         return string.Empty;
     }
 }
