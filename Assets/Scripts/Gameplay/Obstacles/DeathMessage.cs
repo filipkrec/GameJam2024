@@ -19,9 +19,19 @@ public class DeathMessage : MonoBehaviour
     {
         IEnumerator AppearCoroutine()
         {
+            transform.position = appearPosition + _appearPositionOffset;
+
+            Color originalColor = _messageText.color;
+            _messageText.color = Color.clear;
+
             yield return new WaitForSeconds(appearDelay);
+            /*
             transform
-                .DOMove(appearPosition + _appearPositionOffset, appearDelay)
+                .DOMove(appearPosition + _appearPositionOffset, _appearAnimationDuration)
+                .OnComplete(Display);
+            */
+            _messageText // TODO: return the call above when an object is done
+                .DOColor(originalColor, _appearAnimationDuration)
                 .OnComplete(Display);
         }
         StartCoroutine(AppearCoroutine());
@@ -32,7 +42,8 @@ public class DeathMessage : MonoBehaviour
         IEnumerator DisplayCoroutine()
         {
             yield return new WaitForSeconds(_displayDuration);
-            PopUpWindow.Instance.SetPopUpWindow("", "Try again", RestartLevel, "Return to main menu", ReturnToMainMenu); // TODO: move messages somewhere
+            Debug.LogError("SHould open pop up");
+            //PopUpWindow.Instance.SetPopUpWindow("", "Try again", RestartLevel, "Return to main menu", ReturnToMainMenu); // TODO: move messages somewhere
         }
         StartCoroutine(DisplayCoroutine());
     }
