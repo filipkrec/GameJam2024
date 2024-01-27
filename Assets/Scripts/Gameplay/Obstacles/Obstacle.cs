@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour // TODO: make abstract
+public abstract class Obstacle : MonoBehaviour
 {
-    [SerializeField] protected ObstacleType _type = ObstacleType.None;
+    protected ObstacleType _type = ObstacleType.None;
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
