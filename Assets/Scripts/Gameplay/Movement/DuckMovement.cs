@@ -30,6 +30,8 @@ public class DuckMovement : MonoBehaviour
 
         rightLeg.MovementStarted = MovementFlowStarted;
         rightLeg.MovementStopped = MovementFlowStopped;
+
+        Duck.Instance.SetOnDeathAction(() => Destroy(this)); // movement script unnecessary after death
     }
 
     // Update is called once per frame
