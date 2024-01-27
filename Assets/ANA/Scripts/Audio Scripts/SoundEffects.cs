@@ -16,16 +16,10 @@ public class SoundEffects : ScriptableObject
 
     public AudioClip GetSoundEffectByType(SoundEffectType type)
     {
+        if (type == SoundEffectType.None) return null;
+
         SoundEffectData targetData = _soundEffects.Find((data) => data.Type == type);
-        if (targetData != null && targetData.Clips.Length >= 1) return targetData.Clips[targetData.Clips.Length > 1 ? UnityEngine.Random.Range(0, targetData.Clips.Length) : 0];
+        if (targetData != null && targetData.Clips.Length > 0) return targetData.Clips[targetData.Clips.Length > 1 ? UnityEngine.Random.Range(0, targetData.Clips.Length) : 0];
         else return null;
     }
-}
-
-public enum SoundEffectType
-{
-    None,
-    UISelect,
-    UIChangeSelection,
-    // TODO: add missing types
 }
