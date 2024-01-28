@@ -38,7 +38,7 @@ public class DeathMessage : MonoBehaviour
         IEnumerator DisplayCoroutine()
         {
             yield return new WaitForSeconds(_displayDuration);
-            PopUpWindow.Instance.SetPopUpWindow("Want to try again or will you chicken out?", "Restart", RestartLevel, "Main Menu", ReturnToMainMenu);
+            PopUpWindow.Instance.SetPopUpWindow("Want to try again or will you give the quack up?", "Restart", RestartLevel, "Main Menu", ReturnToMainMenu);
             PopUpWindow.Instance.OpenWindow();
         }
         StartCoroutine(DisplayCoroutine());
