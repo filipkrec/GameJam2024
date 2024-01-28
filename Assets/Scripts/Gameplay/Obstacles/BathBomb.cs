@@ -43,5 +43,6 @@ public class BathBomb : Obstacle
         _rigidbody.velocity = Vector3.zero;
         transform.position = _startingPosition;
         _rigidbody.velocity = _bombDirection * _bombSpeed;
+        _rigidbody.AddTorque(new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)), ForceMode.Impulse);
     }
 }

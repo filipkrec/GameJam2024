@@ -8,4 +8,8 @@ public abstract class Obstacle : MonoBehaviour
     {
         if (collision.transform.CompareTag(Duck.DUCK_TAG)) Duck.Instance.Collide(_type);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag(Duck.DUCK_TAG)) Duck.Instance.Collide(_type);
+    }
 }

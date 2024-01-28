@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2999
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -45,15 +45,15 @@ Material:
     - _FoamDepthMax: 2
     - _FoamScale: 8
     - _FoamSpeed: 0.1
-    - _GlobalAlphaMulitiplier: 1
-    - _MaxDepth: 1
+    - _GlobalAlphaMulitiplier: 0.9
+    - _MaxDepth: 0.1
     - _QueueControl: 0
-    - _QueueOffset: -1
+    - _QueueOffset: 0
     - _SmoothsteMax: 0.79
     - _SmoothsteMaxFoam: 1
     - _SmoothsteMin: -1.1
     - _SmoothsteMinFoam: 0
-    - _SmoothstepColorMax: 16
+    - _SmoothstepColorMax: 1
     - _SmoothstepColorMin: 1
     - _SmoothstepFoamFade: 0.5
     - _SmoothstepMax: 0.77
