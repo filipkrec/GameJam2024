@@ -64,16 +64,16 @@ public class Duck : SingletonBehaviour<Duck>
 
     public void Win()
     {
-        ShowMessage(_victoryMessages.GetRandomMessage());
+        ShowMessage(_victoryMessages.GetRandomMessage(), false);
         Animator animator = GetComponentInChildren<Animator>(); // the animator is on the child object
         if (animator != null) animator.SetBool(_DUCK_VICTORY_ANIMATOR_KEY, true);
         _onWinAction?.Invoke();
     }
 
-    public void ShowMessage(string _message)
+    public void ShowMessage(string _message, bool showPopup = true)
     {
         DeathMessage deathMessage = Instantiate(_deathMessagePrefab, transform.position + _deathMessageSpawnOffset, _deathMessagePrefab.transform.rotation);
-        deathMessage.SetUpMessage(_message);
+        deathMessage.SetUpMessage(_message, showPopup);
         deathMessage.Appear(transform.position, _deathMessageAppearDelay);
     }
 }
