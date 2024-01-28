@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Duck : SingletonBehaviour<Duck>
 {
+    public const string LAST_LEVEL_KEY = "LastLevel";
+
     public const string _DUCK_DEATH_ANIMATOR_KEY = "IsDuckDead";
     public const string _DUCK_VICTORY_ANIMATOR_KEY = "IsDuckWin";
 
@@ -24,6 +27,8 @@ public class Duck : SingletonBehaviour<Duck>
     {
         base.Awake();
         transform.tag = DUCK_TAG;
+
+        PlayerPrefs.SetInt(LAST_LEVEL_KEY, SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnDestroy()
