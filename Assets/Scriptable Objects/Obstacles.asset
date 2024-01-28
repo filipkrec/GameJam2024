@@ -12,4 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3795e74ae3064e641bb4b0e014bd08c6, type: 3}
   m_Name: Obstacles
   m_EditorClassIdentifier: 
-  _obstacles: []
+  _obstacles:
+  - Type: 1
+    DeathMessages:
+    - How did the rubber duck respond to being hit by the bath bomb? "Well, that
+      was a 'blow'-up of excitement."
+    - How did the rubber duck feel about the bath bomb's surprise entrance? It said,
+      "You really know how to make a splash!"
+  - Type: 2
+    DeathMessages:
+    - ' Why did the shampoo bottle apologize to the rubber duck? It said, "I didn''t
+      mean to ''condition'' you for a surprise bath!"'
+    - What did the rubber duck say to the shampoo bottle after the collision? "I
+      guess you really know how to 'shower' me with surprises!"
+    - "What did the shampoo bottle say to the rubber duck about their unexpected
+      encounter? \"I promise it wasn't intentional \u2013 just a 'rinse' of fate!\""
+  - Type: 3
+    DeathMessages:
+    - How did the bar of soap explain the situation to the rubber duck? "It was a
+      'clean' drop, I promise!"
+    - What did the bar of soap say to the rubber duck it fell on? "I guess you could
+      say I'm 'ducking' responsibility for this slippery situation!"
+    - "Why did the rubber duck laugh after being hit by the bar of soap? It said,
+      \"Talk about a 'clean' hit \u2013 I've never been washed with so much excitement!\""
