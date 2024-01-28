@@ -39,6 +39,7 @@ public class DeathMessage : MonoBehaviour
         {
             yield return new WaitForSeconds(_displayDuration);
             PopUpWindow.Instance.SetPopUpWindow("Want to try again or will you chicken out?", "Restart", RestartLevel, "Main Menu", ReturnToMainMenu);
+            PopUpWindow.Instance.OpenWindow();
         }
         StartCoroutine(DisplayCoroutine());
     }
