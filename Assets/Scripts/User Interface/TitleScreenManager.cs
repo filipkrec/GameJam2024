@@ -6,39 +6,78 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro _pressAnyKeyPrompt = null;
-    [SerializeField] private float _pressAnyKeyPromptDelay = 0.0f;
-    [SerializeField] private float _pressAnyKeyPromptAppearDuration = 0.0f;
+    [Header("Title Values")]
+    [SerializeField] private TextMeshPro _titleText = null;
+    [SerializeField] private float _titleTextAppearDuration = 0.0f;
+
+    [Header("Prompt Values")]
+    [SerializeField] private TextMeshPro _promptText = null;
+    [SerializeField] private float _promptAppearDelay = 0.0f;
+    [SerializeField] private float _promptAppearDuration = 0.0f;
+    [SerializeField] private Vector2 _promptGlowAlphaRange = Vector2.zero;
+    [SerializeField] private float _promptGlowPhaseDuration = 0.0f;
+
+    [Header("Transition Animation Values")]
+    [SerializeField] private Transform[] _objectsToMove = null;
+    [SerializeField] private Vector3 _transitionOffset = Vector3.zero;
+    [SerializeField] private float _transitionDuration = 0.0f;
 
     private bool _isAcceptingInput = false;
-    private Color _pressAnyKeyPromptColor = Color.clear;
+    private Sequence _promptGlowSequence = null;
+    private Sequence _transitionSequence = null;
 
     private void Awake()
     {
-        _pressAnyKeyPromptColor = _pressAnyKeyPrompt.color;
-        _pressAnyKeyPrompt.color = Color.clear;
-
-        Display();
+        ShowTitleText();
     }
 
     private void Update()
     {
         if (_isAcceptingInput && Input.anyKeyDown)
         {
-            // TODO: animate bubbles
-            SceneManager.LoadScene(1); // TODO: move after bubble animation
+            AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
+            DOTween.KillAll();
+
+            _transitionSequence = DOTween.Sequence();
+            _transitionSequence.Pause();
+            foreach (Transform objectToMove in _objectsToMove) _transitionSequence.Join(objectToMove.DOMove(objectToMove.position + _transitionOffset, _transitionDuration));
+            _transitionSequence.OnComplete(() => SceneManager.LoadScene("Main Menu"));
+            _transitionSequence.Play();
+
+            _isAcceptingInput = false;
         }
     }
 
-    private void Display()
+    private void ShowTitleText()
     {
-        IEnumerator DisplayCoroutine()
+        _titleText.DOFade(0.0f, 0.0f);
+        _promptText.DOFade(0.0f, 0.0f);
+
+        _titleText
+            .DOFade(1.0f, _titleTextAppearDuration)
+            .OnComplete(() => ShowPrompt());
+    }
+
+    private void ShowPrompt()
+    {
+        IEnumerator ShowPromptCoroutine()
         {
-            yield return new WaitForSeconds(_pressAnyKeyPromptDelay);
-            _pressAnyKeyPrompt
-                .DOColor(_pressAnyKeyPromptColor, _pressAnyKeyPromptAppearDuration)
-                .OnComplete(() => _isAcceptingInput = true);
+            yield return new WaitForSeconds(_promptAppearDelay);
+            _promptText
+                .DOFade(_promptGlowAlphaRange.y, _promptAppearDuration)
+                .OnComplete(() =>
+                {
+                    _isAcceptingInput = true;
+
+                    _promptGlowSequence = DOTween.Sequence();
+                    _promptGlowSequence.Pause();
+                    _promptGlowSequence
+                        .Append(_promptText.DOFade(_promptGlowAlphaRange.x, _promptGlowPhaseDuration).SetEase(Ease.Linear))
+                        .Append(_promptText.DOFade(_promptGlowAlphaRange.y, _promptGlowPhaseDuration).SetEase(Ease.Linear));
+                    _promptGlowSequence.SetLoops(-1);
+                    _promptGlowSequence.Play();
+                });
         }
-        StartCoroutine(DisplayCoroutine());
+        StartCoroutine(ShowPromptCoroutine());
     }
 }
