@@ -6,6 +6,7 @@ public class PathFollower : MonoBehaviour
     [SerializeField] private Transform[] _waypoints = null;
     [SerializeField] private float _pathDuration = 0.0f;
     [SerializeField] private bool _shouldLookAtTargetPosition = true;
+    [SerializeField] private float _lookAtTargetTransitionDuration = 0.0f;
 
     private Vector3[] _positions = null;
 
@@ -18,7 +19,7 @@ public class PathFollower : MonoBehaviour
         {
             transform
                 .DOPath(_positions, _pathDuration)
-                .OnWaypointChange((index) => transform.LookAt(_positions[index + 1 > _positions.Length - 1 ? 0 : index + 1]))
+                .OnWaypointChange((index) => transform.DOLookAt(_positions[index + 1 > _positions.Length - 1 ? 0 : index + 1], _lookAtTargetTransitionDuration))
                 .SetEase(Ease.Linear)
                 .SetLoops(-1);
         }
