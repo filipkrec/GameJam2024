@@ -51,7 +51,9 @@ public class TitleScreenManager : MonoBehaviour
     private void ShowTitleText()
     {
         _titleText.DOFade(0.0f, 0.0f);
-        _promptText.DOFade(0.0f, 0.0f);
+        _promptText
+            .DOFade(0.0f, 0.0f)
+            .OnComplete(() => AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.Duck));
 
         _titleText
             .DOFade(1.0f, _titleTextAppearDuration)
@@ -67,6 +69,8 @@ public class TitleScreenManager : MonoBehaviour
                 .DOFade(_promptGlowAlphaRange.y, _promptAppearDuration)
                 .OnComplete(() =>
                 {
+                    AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.Duck);
+
                     _isAcceptingInput = true;
 
                     _promptGlowSequence = DOTween.Sequence();
