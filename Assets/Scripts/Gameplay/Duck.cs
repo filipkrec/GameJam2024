@@ -15,6 +15,8 @@ public class Duck : SingletonBehaviour<Duck>
     [SerializeField] private Vector3 _deathMessageSpawnOffset = Vector3.zero;
     [SerializeField] private float _deathMessageAppearDelay = 0.0f;
 
+    private bool _isDead = false;
+
     private Action _onDeathAction = null;
     private Action _onWinAction = null;
 
@@ -42,6 +44,9 @@ public class Duck : SingletonBehaviour<Duck>
 
     public void Collide(ObstacleType obstacleType)
     {
+        if (_isDead) return;
+        _isDead = true;
+
         AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.Duck);
 
         string message = _obstacles.GetDeathMessageByObstacleType(obstacleType);
