@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ecc02d347a48a34ea39554fe3ee3b0b, type: 3}
+  m_Name: Victory Messages
+  m_EditorClassIdentifier: 
+  VictoryMessages:
+  - What do you call a duck that steals? A robber ducky!
+  - What do you call a duck that loves to tell jokes? A wise quacker!
+  - What do you get when you cross a duck with a firework? A firequacker!
+  - What's a duck's favorite snack? Quackers!
+  - Why did the duck go to rehab? Because he was addicted to quack!
+  - How does a duck pay for things? With duck bills!
+  - What's a duck's favorite type of music? Beak-boxing!
+  - What did the duck say to the comedian? "You quack me up!"
+  - What's a duck's favorite movie genre? Duckumentaries!
+  - What do you call a duck who likes to play basketball? A slam-dunck!

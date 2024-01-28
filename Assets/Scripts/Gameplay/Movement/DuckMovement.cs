@@ -31,6 +31,7 @@ public class DuckMovement : MonoBehaviour
         rightLeg.MovementStopped = MovementFlowStopped;
 
         Duck.Instance.SetOnDeathAction(() => Destroy(this)); // movement script unnecessary after death
+        Duck.Instance.SetOnWinAction(() => Destroy(this)); // movement script unnecessary after death
     }
 
     // Update is called once per frame
@@ -87,6 +88,7 @@ public class DuckMovement : MonoBehaviour
 
     void MovementFlowStarted(DuckLeg _leg)
     {
+        sfxSource.Stop();
         sfxSource.clip = swooshClip;
         sfxSource.Play();
 
