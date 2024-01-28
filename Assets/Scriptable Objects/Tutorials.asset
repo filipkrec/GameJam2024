@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TutorialsData:
   - Id: 0
-    Text: Hold A to gently nudge your adorable duckie using its left leg. Alternatively,
-      hold D to guide your duckie with its right leg.
+    Text: Hold <b><color=#00FFFF>A</color></b> to gently nudge your adorable duckie
+      using its left leg. Alternatively, hold <b><color=#00FFFF>D</color></b> to
+      guide your duckie with its right leg.
   - Id: 1
     Text: Experience a splashy dash by simultaneously pressing both buttons! Be cautious
       as dashing is quite exhausting, and your duckie might need a brief cooldown

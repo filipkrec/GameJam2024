@@ -45,7 +45,7 @@ Material:
     - _FoamDepthMax: 2
     - _FoamScale: 8
     - _FoamSpeed: 0.1
-    - _GlobalAlphaMulitiplier: 0.9
+    - _GlobalAlphaMulitiplier: 0.75
     - _MaxDepth: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
