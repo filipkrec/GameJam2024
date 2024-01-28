@@ -15,6 +15,7 @@ Material:
   - _DETAIL_SCALED
   - _NORMALMAP
   - _OCCLUSIONMAP
+  - _RECEIVE_SHADOWS_OFF
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _SPECULAR_SETUP
   m_InvalidKeywords: []
@@ -67,6 +68,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _OcclusionStrength: 1
+    - _ReceiveShadows: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 1
     - _Surface: 0
