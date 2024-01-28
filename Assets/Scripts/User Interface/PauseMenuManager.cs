@@ -23,6 +23,17 @@ public class PauseMenuManager : Window
         _exitButton.onClick.AddListener(Exit);
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+        if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && !_isOpened)
+        {
+            Time.timeScale = 0.0f;
+            OpenWindow();
+        }
+    }
+
     private void OnDestroy()
     {
         _continueButton.onClick.RemoveAllListeners();
@@ -44,7 +55,8 @@ public class PauseMenuManager : Window
     private void Continue()
     {
         AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
-        // TODO: close the menu and continue the game time
+        Time.timeScale = 1.0f;
+        CloseWindow();
     }
 
     private void OpenSettings()
@@ -66,6 +78,7 @@ public class PauseMenuManager : Window
 
     private void OnExitConfirmed()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Main Menu");
     }
 
