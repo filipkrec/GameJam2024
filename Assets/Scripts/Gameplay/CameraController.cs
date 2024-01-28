@@ -23,6 +23,9 @@ public class CameraController : MonoBehaviour
         Duck.Instance.SetOnDeathAction(() => _isDuckAlive = false);
         Duck.Instance.SetOnDeathAction(SwitchToDefeatPosition);
 
+        Duck.Instance.SetOnWinAction(() => _isDuckAlive = false);
+        Duck.Instance.SetOnWinAction(SwitchToDefeatPosition);
+
         _cameraTransform = Camera.main.transform;
         _cameraTransform.position = _duckTransform.position + _followOffset;
         _cameraTransform.LookAt(_duckTransform.position);
