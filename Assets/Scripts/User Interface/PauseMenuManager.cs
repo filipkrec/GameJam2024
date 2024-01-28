@@ -78,6 +78,7 @@ public class PauseMenuManager : Window
 
     private void OnExitConfirmed()
     {
+        _previouslySelectedElement = null;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("Main Menu");
     }
