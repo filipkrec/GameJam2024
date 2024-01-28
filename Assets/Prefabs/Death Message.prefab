@@ -187,4 +187,4 @@ MonoBehaviour:
   _messageText: {fileID: 1769056711366547354}
   _appearPositionOffset: {x: 0, y: 0.6, z: 0}
   _appearAnimationDuration: 1
-  _displayDuration: 5
+  _displayDuration: 7.5

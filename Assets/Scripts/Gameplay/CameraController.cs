@@ -42,6 +42,7 @@ public class CameraController : MonoBehaviour
 
     private void SwitchToDefeatPosition()
     {
+        _cameraTransform.transform.position = _duckTransform.transform.position + _followOffset;
         Vector3 duckPosition = _duckTransform.position;
         _cameraTransform
             .DOMove(duckPosition + _defeatPositionOffset, _defeatAnimationDuration)
