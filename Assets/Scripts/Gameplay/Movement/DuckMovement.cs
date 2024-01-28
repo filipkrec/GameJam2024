@@ -1,7 +1,4 @@
-using System;
-using System.Transactions;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
 
 public class DuckMovement : MonoBehaviour
 {
@@ -11,6 +8,8 @@ public class DuckMovement : MonoBehaviour
     [SerializeField] private DuckLeg leftLeg;
     [SerializeField] private DuckLeg rightLeg;
     [SerializeField] private ParticleSystem boostTrail;
+    [SerializeField] private AudioClip swooshClip;
+    [SerializeField] private AudioSource sfxSource;
 
     [Header("Input")]
     [SerializeField] private KeyCode KeyCodeLeft;
@@ -41,26 +40,26 @@ public class DuckMovement : MonoBehaviour
         leftLeg.MoveLeg(KeyCodeLeft);
         rightLeg.MoveLeg(KeyCodeRight);
 
-        if(leftLeg.CanBoost && rightLeg.CanBoost)
+        if (leftLeg.CanBoost && rightLeg.CanBoost)
         {
             rightLeg.Boost();
             leftLeg.Boost();
             boostTrail.Play();
         }
 
-        if(isTempoEvaluationActive && !isTempo)
+        if (isTempoEvaluationActive && !isTempo)
         {
             tempoTimer += Time.deltaTime;
-            if(tempoTimer > movementConfig.TempoThresholdTime)
+            if (tempoTimer > movementConfig.TempoThresholdTime)
             {
                 StartTempo();
             }
         }
 
-        if(isTempoInteruptionEvaluationActive)
+        if (isTempoInteruptionEvaluationActive)
         {
             tempoInteruptionTimer += Time.deltaTime;
-            if(tempoInteruptionTimer > movementConfig.TempoBreakTime)
+            if (tempoInteruptionTimer > movementConfig.TempoBreakTime)
             {
                 EndTempo();
             }
@@ -88,13 +87,16 @@ public class DuckMovement : MonoBehaviour
 
     void MovementFlowStarted(DuckLeg _leg)
     {
+        sfxSource.clip = swooshClip;
+        sfxSource.Play();
+
         if (tempoTimer <= 0f)
         {
             isTempoEvaluationActive = true;
         }
         else
         {
-            if(_leg != previousTempoLeg && isTempoInteruptionEvaluationActive)
+            if (_leg != previousTempoLeg && isTempoInteruptionEvaluationActive)
             {
                 isTempoInteruptionEvaluationActive = false;
                 tempoInteruptionTimer = 0f;

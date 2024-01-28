@@ -133,6 +133,8 @@ MonoBehaviour:
   leftLeg: {fileID: 4047227365691458395}
   rightLeg: {fileID: 9086085879540070259}
   boostTrail: {fileID: 2481550130305865196}
+  swooshClip: {fileID: 8300000, guid: 79160af0aeb121249a4c679655820a2a, type: 3}
+  sfxSource: {fileID: 1406338359584453951}
   KeyCodeLeft: 97
   KeyCodeRight: 100
 --- !u!114 &4047227365691458395
@@ -5083,7 +5085,7 @@ GameObject:
   - component: {fileID: 8374968011846580376}
   - component: {fileID: 1406338359584453951}
   m_Layer: 0
-  m_Name: AudioSource
+  m_Name: AudioSourceSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5211,7 +5213,7 @@ GameObject:
   - component: {fileID: 1266419116988438722}
   - component: {fileID: 2149162529942101503}
   m_Layer: 0
-  m_Name: AudioSource2
+  m_Name: AudioSourceMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
