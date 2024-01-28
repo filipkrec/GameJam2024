@@ -133,7 +133,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -187,4 +187,4 @@ MonoBehaviour:
   _messageText: {fileID: 1769056711366547354}
   _appearPositionOffset: {x: 0, y: 0.6, z: 0}
   _appearAnimationDuration: 1
-  _displayDuration: 15
+  _displayDuration: 7.5
