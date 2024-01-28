@@ -10,6 +10,7 @@ public class PauseMenuManager : Window
     [SerializeField] private Button _settingsButton = null;
     [SerializeField] private Button _exitButton = null;
 
+    private bool _canBeActivated = true;
     private GameObject _previouslySelectedElement = null;
 
     private void Awake()
@@ -23,10 +24,17 @@ public class PauseMenuManager : Window
         _exitButton.onClick.AddListener(Exit);
     }
 
+    private void Start()
+    {
+        Duck.Instance.SetOnDeathAction(() => _canBeActivated = false);
+        Duck.Instance.SetOnWinAction(() => _canBeActivated = false);
+    }
+
     protected override void Update()
     {
         base.Update();
 
+        if (!_canBeActivated) return;
         if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && !_isOpened)
         {
             Time.timeScale = 0.0f;

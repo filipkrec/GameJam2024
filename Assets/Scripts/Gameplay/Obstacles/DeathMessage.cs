@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathMessage : MonoBehaviour
 {
@@ -25,12 +26,7 @@ public class DeathMessage : MonoBehaviour
             _messageText.color = Color.clear;
 
             yield return new WaitForSeconds(appearDelay);
-            /*
-            transform
-                .DOMove(appearPosition + _appearPositionOffset, _appearAnimationDuration)
-                .OnComplete(Display);
-            */
-            _messageText // TODO: return the call above when an object is done
+            _messageText
                 .DOColor(originalColor, _appearAnimationDuration)
                 .OnComplete(Display);
         }
@@ -42,19 +38,18 @@ public class DeathMessage : MonoBehaviour
         IEnumerator DisplayCoroutine()
         {
             yield return new WaitForSeconds(_displayDuration);
-            Debug.LogError("SHould open pop up");
-            //PopUpWindow.Instance.SetPopUpWindow("", "Try again", RestartLevel, "Return to main menu", ReturnToMainMenu); // TODO: move messages somewhere
+            PopUpWindow.Instance.SetPopUpWindow("Want to try again or will you chicken out?", "Restart", RestartLevel, "Main Menu", ReturnToMainMenu);
         }
         StartCoroutine(DisplayCoroutine());
     }
 
     private void RestartLevel()
     {
-        // TODO: restart level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void ReturnToMainMenu()
     {
-        // TODO: return to main menu
+        SceneManager.LoadScene("Main Menu");
     }
 }
