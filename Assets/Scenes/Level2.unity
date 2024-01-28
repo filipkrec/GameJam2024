@@ -2480,7 +2480,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 469622118236998452, guid: 632a0ff05f0b441468a5c4a1d6249475, type: 3}
       propertyPath: isLastLevel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 469622118236998452, guid: 632a0ff05f0b441468a5c4a1d6249475, type: 3}
       propertyPath: targetScene
@@ -2582,6 +2582,11 @@ PrefabInstance:
 --- !u!224 &999008983 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4727769247388580285, guid: 632a0ff05f0b441468a5c4a1d6249475, type: 3}
+  m_PrefabInstance: {fileID: 999008982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &999008984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5477536052475679017, guid: 632a0ff05f0b441468a5c4a1d6249475, type: 3}
   m_PrefabInstance: {fileID: 999008982}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1036785965
@@ -2984,6 +2989,10 @@ PrefabInstance:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1651568365}
+    - target: {fileID: 8482561340030391841, guid: d05d6276a9eea29408108f8bb37a94ff, type: 3}
+      propertyPath: endGameObject
+      value: 
+      objectReference: {fileID: 999008984}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

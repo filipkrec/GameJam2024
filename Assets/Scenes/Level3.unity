@@ -1666,8 +1666,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4842969416791141328, guid: c5774d9fbe6f0a846a31956d5115e7e0, type: 3}
+      propertyPath: _bombDirection.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842969416791141328, guid: c5774d9fbe6f0a846a31956d5115e7e0, type: 3}
       propertyPath: _bombDirection.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4842969416791141328, guid: c5774d9fbe6f0a846a31956d5115e7e0, type: 3}
       propertyPath: _lifetimeRange.x
@@ -3020,7 +3024,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4842969416791141328, guid: c5774d9fbe6f0a846a31956d5115e7e0, type: 3}
       propertyPath: _bombDirection.x
-      value: -1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4842969416791141328, guid: c5774d9fbe6f0a846a31956d5115e7e0, type: 3}
+      propertyPath: _bombDirection.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4842969416791141328, guid: c5774d9fbe6f0a846a31956d5115e7e0, type: 3}
       propertyPath: _lifetimeRange.x
