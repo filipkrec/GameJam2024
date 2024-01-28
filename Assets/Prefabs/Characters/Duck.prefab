@@ -113,9 +113,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obstacles: {fileID: 11400000, guid: ed6b06f0667dde045a98772e1812e3a9, type: 2}
+  _victoryMessages: {fileID: 11400000, guid: e660e64fd1074b646a225518532f0b7b, type: 2}
   _deathMessagePrefab: {fileID: 9114313387185087595, guid: da1c9e2a7a7b0614bae6cb3b3e3f4c9a, type: 3}
-  _deathMessageSpawnOffset: {x: 0, y: 0, z: 0}
-  _deathMessageAppearDelay: 0
+  _deathMessageSpawnOffset: {x: 0, y: 5, z: 0}
+  _deathMessageAppearDelay: 0.5
 --- !u!114 &3597209964279574854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementConfig: {fileID: 11400000, guid: 4238cb3aa0902b748be0f27cf6a57bc7, type: 2}
   rigidBody: {fileID: 6757172192961354741}
+  collider: {fileID: 4124185475762421843}
   leftLeg: {fileID: 4047227365691458395}
   rightLeg: {fileID: 9086085879540070259}
   boostTrail: {fileID: 2481550130305865196}

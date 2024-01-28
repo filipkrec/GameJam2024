@@ -5,6 +5,7 @@ public class DuckMovement : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private MovementConfigScriptableObject movementConfig;
     [SerializeField] private Rigidbody rigidBody;
+    [SerializeField] private Collider collider;
     [SerializeField] private DuckLeg leftLeg;
     [SerializeField] private DuckLeg rightLeg;
     [SerializeField] private ParticleSystem boostTrail;
@@ -30,8 +31,8 @@ public class DuckMovement : MonoBehaviour
         rightLeg.MovementStarted = MovementFlowStarted;
         rightLeg.MovementStopped = MovementFlowStopped;
 
-        Duck.Instance.SetOnDeathAction(() => Destroy(this)); // movement script unnecessary after death
-        Duck.Instance.SetOnWinAction(() => Destroy(this)); // movement script unnecessary after death
+        Duck.Instance.SetOnDeathAction(() => { rigidBody.isKinematic = true; collider.enabled = false; Destroy(this); }); // movement script unnecessary after death
+        Duck.Instance.SetOnWinAction(() => { rigidBody.isKinematic = true; collider.enabled = false; Destroy(this); }); // movement script unnecessary after death
     }
 
     // Update is called once per frame
