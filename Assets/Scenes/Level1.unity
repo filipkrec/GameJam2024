@@ -454,8 +454,8 @@ MonoBehaviour:
   _followOffset: {x: 0, y: 5, z: -5}
   _followVelocity: {x: 0, y: 0, z: 0}
   _followSmoothTime: 1
-  _defeatPositionOffset: {x: 0, y: 0, z: 0}
-  _defeatAnimationDuration: 0
+  _defeatPositionOffset: {x: 0, y: 6, z: 0}
+  _defeatAnimationDuration: 2.5
 --- !u!114 &156702987
 MonoBehaviour:
   m_ObjectHideFlags: 0

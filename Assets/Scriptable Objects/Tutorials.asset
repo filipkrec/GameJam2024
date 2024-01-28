@@ -18,12 +18,13 @@ MonoBehaviour:
       using its left leg. Alternatively, hold <b><color=#00FFFF>D</color></b> to
       guide your duckie with its right leg.
   - Id: 1
-    Text: Experience a splashy dash by simultaneously pressing both buttons! Be cautious
-      as dashing is quite exhausting, and your duckie might need a brief cooldown
-      after.
+    Text: 'Experience a splashy dash by simultaneously pressing <b><color=#00FFFF>both
+      buttons</color></b>! Be cautious as dashing is quite exhausting, and your duckie
+      might need a brief cooldown after. '
   - Id: 2
-    Text: Keep your duckie in a continuous swim for a little while and watch it gain
-      an extra burst of speed.
+    Text: Keep your duckie in a <b><color=#00FFFF>continuous</color></b> swim for
+      a little while and watch it gain an extra <b><color=#00FFFF>burst</color></b>
+      of speed.
   - Id: 3
     Text: 'Navigate skillfully through the obstacles, reaching your human companion
       to spread joy across the bathtubs of the world. '
