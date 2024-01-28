@@ -351,6 +351,7 @@ MonoBehaviour:
   - {fileID: 2119507986}
   _pathDuration: 7.5
   _shouldLookAtTargetPosition: 0
+  _lookAtTargetTransitionDuration: 0.05
 --- !u!1 &137298096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1103,7 @@ MonoBehaviour:
   - {fileID: 606961520}
   _pathDuration: 20
   _shouldLookAtTargetPosition: 1
+  _lookAtTargetTransitionDuration: 0.5
 --- !u!1 &645925508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1608,7 @@ MonoBehaviour:
   - {fileID: 509271713}
   _pathDuration: 10
   _shouldLookAtTargetPosition: 0
+  _lookAtTargetTransitionDuration: 0.05
 --- !u!1 &894011507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,7 +2245,7 @@ MonoBehaviour:
   - {fileID: 1187339501}
   - {fileID: 1769325559}
   _transitionOffset: {x: 0, y: 50, z: 0}
-  _transitionDuration: 1.5
+  _transitionDuration: 0.5
 --- !u!1 &1247550617
 GameObject:
   m_ObjectHideFlags: 0
