@@ -116,7 +116,7 @@ MonoBehaviour:
   _victoryMessages: {fileID: 11400000, guid: e660e64fd1074b646a225518532f0b7b, type: 2}
   _deathMessagePrefab: {fileID: 9114313387185087595, guid: da1c9e2a7a7b0614bae6cb3b3e3f4c9a, type: 3}
   _deathMessageSpawnOffset: {x: 0, y: 5, z: 0}
-  _deathMessageAppearDelay: 0.5
+  _deathMessageAppearDelay: 2
 --- !u!114 &3597209964279574854
 MonoBehaviour:
   m_ObjectHideFlags: 0
