@@ -17,8 +17,8 @@ MonoBehaviour:
   BoostForceMultiplier: 2
   TempoForceMultiplier: 1.5
   MaxHoldTime: 1
-  LegCooldown: 1
-  LegCooldownBoost: 3
+  LegCooldown: 0.5
+  LegCooldownBoost: 2
   BoostThresholdTime: 0.5
   TempoThresholdTime: 2.5
   TempoBreakTime: 1

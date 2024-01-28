@@ -2116,6 +2116,10 @@ PrefabInstance:
       propertyPath: isLastLevel
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 469622118236998452, guid: 632a0ff05f0b441468a5c4a1d6249475, type: 3}
+      propertyPath: targetScene
+      value: Level3
+      objectReference: {fileID: 0}
     - target: {fileID: 4727769247388580285, guid: 632a0ff05f0b441468a5c4a1d6249475, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
