@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenuManager : Window
@@ -57,7 +58,7 @@ public class PauseMenuManager : Window
     private void Exit()
     {
         AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
-        PopUpWindow.Instance.SetPopUpWindow("Sure you want to go, go?", "Yes", OnExitConfirmed, "No", OnExitCancelled);   // TODO: save the texts to a scriptable or a file
+        PopUpWindow.Instance.SetPopUpWindow("You want to duck out?", "Yes", OnExitConfirmed, "No", OnExitCancelled);
         _previouslySelectedElement = _exitButton.gameObject;
         CloseWindow();
         PopUpWindow.Instance.OpenWindow();
@@ -65,7 +66,7 @@ public class PauseMenuManager : Window
 
     private void OnExitConfirmed()
     {
-        // TODO: load the main menu
+        SceneManager.LoadScene("Main Menu");
     }
 
     private void OnExitCancelled()

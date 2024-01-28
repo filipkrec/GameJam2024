@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : Window
@@ -43,7 +44,7 @@ public class MainMenuManager : Window
     private void Play()
     {
         AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
-        // TODO: load first level
+        SceneManager.LoadScene("Level1");
     }
 
     private void OpenSettings()
@@ -57,7 +58,7 @@ public class MainMenuManager : Window
     private void Exit()
     {
         AudioManager.Instance.PlaySoundEffectByType(SoundEffectType.UISelect);
-        PopUpWindow.Instance.SetPopUpWindow("Sure you want to duck out?", "Yes", OnExitConfirmed, "No", OnExitCancelled);   // TODO: save the texts to a scriptable or a file
+        PopUpWindow.Instance.SetPopUpWindow("Sure you want to go-go?", "Yes", OnExitConfirmed, "No", OnExitCancelled);
         _previouslySelectedElement = _exitButton.gameObject;
         CloseWindow();
         PopUpWindow.Instance.OpenWindow();
