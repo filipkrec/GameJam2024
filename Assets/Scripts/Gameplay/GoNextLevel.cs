@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class GoNextLevel : MonoBehaviour
 {
+    //redesign this
     const string NextLevelText = "Press any key to spread more joy!";
     const string LastLevelText = "You won! Press any key to return to menu!";
 

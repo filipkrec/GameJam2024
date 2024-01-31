@@ -74,9 +74,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9958935e5ac8304398199c814cafa28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bombDirection: {x: 0, y: 0, z: 0}
-  _bombSpeedRange: {x: 0, y: 0}
+  _direction: {x: 0, y: 0, z: 0}
+  _speedRange: {x: 0, y: 0}
   _lifetimeRange: {x: 0, y: 0}
+  _rigidbody: {fileID: 9145639388836119283}
 --- !u!135 &3831028438868360102
 SphereCollider:
   m_ObjectHideFlags: 0

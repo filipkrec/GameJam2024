@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Obstacles Scriptable Object", menuName = "Scriptable Objects/New Obstacles Scriptable Object")]
-public class Obstacles : ScriptableObject
+[CreateAssetMenu(fileName = "Obstacles Scriptable Object", menuName = "Scriptable Objects/Obstacles Scriptable Object")]
+public class ObstaclesScriptableObject : ScriptableObject
 {
     [Serializable]
     private class ObstacleData

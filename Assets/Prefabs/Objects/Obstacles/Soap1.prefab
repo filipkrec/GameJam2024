@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifetimeRange: {x: 0, y: 0}
+  _rigidbody: {fileID: 2458331985816824979}
 --- !u!64 &6231535609296708989
 MeshCollider:
   m_ObjectHideFlags: 0

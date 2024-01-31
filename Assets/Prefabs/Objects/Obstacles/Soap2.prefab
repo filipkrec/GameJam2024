@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifetimeRange: {x: 0, y: 0}
+  _rigidbody: {fileID: 9026979920743707735}
 --- !u!65 &2306523116793447916
 BoxCollider:
   m_ObjectHideFlags: 0

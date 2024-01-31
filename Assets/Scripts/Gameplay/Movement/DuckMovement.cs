@@ -5,7 +5,7 @@ public class DuckMovement : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private MovementConfigScriptableObject movementConfig;
     [SerializeField] private Rigidbody rigidBody;
-    [SerializeField] private Collider collider;
+    [SerializeField] private Collider duckCollider;
     [SerializeField] private DuckLeg leftLeg;
     [SerializeField] private DuckLeg rightLeg;
     [SerializeField] private ParticleSystem boostTrail;
@@ -25,14 +25,11 @@ public class DuckMovement : MonoBehaviour
 
     private void Start()
     {
-        leftLeg.MovementStarted = MovementFlowStarted;
-        leftLeg.MovementStopped = MovementFlowStopped;
+        leftLeg.MovementStarted = OnMovementStarted;
+        leftLeg.MovementStopped = OnMovementStopped;
 
-        rightLeg.MovementStarted = MovementFlowStarted;
-        rightLeg.MovementStopped = MovementFlowStopped;
-
-        Duck.Instance.SetOnDeathAction(() => { rigidBody.isKinematic = true; collider.enabled = false; Destroy(this); }); // movement script unnecessary after death
-        Duck.Instance.SetOnWinAction(() => { rigidBody.isKinematic = true; collider.enabled = false; Destroy(this); }); // movement script unnecessary after death
+        rightLeg.MovementStarted = OnMovementStarted;
+        rightLeg.MovementStopped = OnMovementStopped;
     }
 
     // Update is called once per frame
@@ -87,7 +84,7 @@ public class DuckMovement : MonoBehaviour
         previousTempoLeg = null;
     }
 
-    void MovementFlowStarted(DuckLeg _leg)
+    private void OnMovementStarted(DuckLeg _leg)
     {
         sfxSource.Stop();
         sfxSource.clip = swooshClip;
@@ -107,12 +104,17 @@ public class DuckMovement : MonoBehaviour
         }
     }
 
-    void MovementFlowStopped(DuckLeg _leg)
+    private void OnMovementStopped(DuckLeg _leg)
     {
         if (tempoTimer > 0f)
         {
             isTempoInteruptionEvaluationActive = true;
             previousTempoLeg = _leg;
         }
+    }
+
+    public void DisableMovementAndCollision()
+    {
+        rigidBody.isKinematic = true; duckCollider.enabled = false; Destroy(this);
     }
 }

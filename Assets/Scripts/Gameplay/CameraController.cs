@@ -12,38 +12,34 @@ public class CameraController : MonoBehaviour
     [SerializeField] private Vector3 _defeatPositionOffset = Vector3.zero;
     [SerializeField] private float _defeatAnimationDuration = 0.0f;
 
-    private Transform _cameraTransform = null;
-    private Transform _duckTransform = null;
+    [SerializeField] private Transform _cameraTransform = null;
+    [SerializeField] private Duck _duck = null;
 
-    private bool _isDuckAlive = true;
+    private bool _followDuck = true;
 
     private void Start()
     {
-        _duckTransform = Duck.Instance.transform;
-        Duck.Instance.SetOnDeathAction(() => _isDuckAlive = false);
-        Duck.Instance.SetOnDeathAction(SwitchToDefeatPosition);
+        _duck.OnWinAction += SetEndLevelCam;
+        _duck.OnDeathAction += SetEndLevelCam;
 
-        Duck.Instance.SetOnWinAction(() => _isDuckAlive = false);
-        Duck.Instance.SetOnWinAction(SwitchToDefeatPosition);
-
-        _cameraTransform = Camera.main.transform;
-        _cameraTransform.position = _duckTransform.position + _followOffset;
-        _cameraTransform.LookAt(_duckTransform.position);
+        _cameraTransform.position = _duck.transform.position + _followOffset;
+        _cameraTransform.LookAt(_duck.transform.position);
     }
 
     private void FixedUpdate()
     {
-        if (_isDuckAlive)
+        if (_followDuck)
         {
-            Vector3 finalPosition = _duckTransform.position + _followOffset;
+            Vector3 finalPosition = _duck.transform.position + _followOffset;
             _cameraTransform.position = Vector3.SmoothDamp(_cameraTransform.position, finalPosition, ref _followVelocity, _followSmoothTime);
         }
     }
 
-    private void SwitchToDefeatPosition()
+    private void SetEndLevelCam()
     {
-        _cameraTransform.transform.position = _duckTransform.transform.position + _followOffset;
-        Vector3 duckPosition = _duckTransform.position;
+        _followDuck = false;
+        _cameraTransform.transform.position = _duck.transform.transform.position + _followOffset;
+        Vector3 duckPosition = _duck.transform.position;
         _cameraTransform
             .DOMove(duckPosition + _defeatPositionOffset, _defeatAnimationDuration)
             .OnUpdate(() => _cameraTransform.LookAt(duckPosition));

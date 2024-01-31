@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AudioManager : SingletonBehaviour<AudioManager>
 {
+    //todo remove singleton, place under duck !?
     private const string _PREFS_SOUND_EFFECTS_VOLUME_KEY = "SoundEffectsVolume";
     private const string _PREFS_BACKGROUND_MUSIC_VOLUME_KEY = "BackgroundMusicVolume";
 

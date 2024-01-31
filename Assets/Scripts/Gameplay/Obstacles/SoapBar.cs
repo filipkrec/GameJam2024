@@ -4,8 +4,7 @@ using UnityEngine;
 public class SoapBar : Obstacle
 {
     [SerializeField] private Vector2 _lifetimeRange = Vector2.zero;
-
-    private Rigidbody _rigidbody = null;
+    [SerializeField] private Rigidbody _rigidbody;
 
     private float _lifetime = 0.0f;
     private Vector3 _startingPosition = Vector3.zero;
@@ -15,8 +14,6 @@ public class SoapBar : Obstacle
     private void Awake()
     {
         _type = ObstacleType.SoapBar;
-
-        _rigidbody = GetComponent<Rigidbody>();
 
         _lifetime = Random.Range(_lifetimeRange.x, _lifetimeRange.y);
         _startingPosition = transform.position;

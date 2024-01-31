@@ -24,10 +24,9 @@ public class PauseMenuManager : Window
         _exitButton.onClick.AddListener(Exit);
     }
 
-    private void Start()
+    public void SetPauseEnabled(bool _enabled)
     {
-        Duck.Instance.SetOnDeathAction(() => _canBeActivated = false);
-        Duck.Instance.SetOnWinAction(() => _canBeActivated = false);
+        _canBeActivated = _enabled;
     }
 
     protected override void Update()

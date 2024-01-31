@@ -3,11 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class BathBomb : Obstacle
 {
-    [SerializeField] private Vector3 _bombDirection = Vector3.zero;
-    [SerializeField] private Vector2 _bombSpeedRange = Vector2.zero;
+    [SerializeField] private Vector3 _direction = Vector3.zero;
+    [SerializeField] private Vector2 _speedRange = Vector2.zero;
     [SerializeField] private Vector2 _lifetimeRange = Vector2.zero;
 
-    private Rigidbody _rigidbody = null;
+    [SerializeField] private Rigidbody _rigidbody;
 
     private float _bombSpeed = 0.0f;
     private float _lifetime = 0.0f;
@@ -19,9 +19,7 @@ public class BathBomb : Obstacle
     {
         _type = ObstacleType.BathBomb;
 
-        _rigidbody = GetComponent<Rigidbody>();
-
-        _bombSpeed = Random.Range(_bombSpeedRange.x, _bombSpeedRange.y);
+        _bombSpeed = Random.Range(_speedRange.x, _speedRange.y);
         _lifetime = Random.Range(_lifetimeRange.x, _lifetimeRange.y);
         _startingPosition = transform.position;
 
@@ -42,7 +40,7 @@ public class BathBomb : Obstacle
     {
         _rigidbody.velocity = Vector3.zero;
         transform.position = _startingPosition;
-        _rigidbody.velocity = _bombDirection * _bombSpeed;
+        _rigidbody.velocity = _direction * _bombSpeed;
         _rigidbody.AddTorque(new Vector3(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f)), ForceMode.Impulse);
     }
 }
